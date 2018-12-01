@@ -8,6 +8,7 @@ import (
 	"strconv"
 )
 
+//Part1 of day 1
 func Part1() {
 	//Zero out the counter
 	currentFrequency := 0
