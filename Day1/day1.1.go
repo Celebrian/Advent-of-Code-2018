@@ -1,4 +1,4 @@
-package day1
+package Day1
 
 import (
 	"bufio"
@@ -8,7 +8,7 @@ import (
 	"strconv"
 )
 
-func day1Part1() {
+func Part1() {
 	//Zero out the counter
 	currentFrequency := 0
 	//Open file
