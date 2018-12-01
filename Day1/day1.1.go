@@ -12,7 +12,7 @@ func Part1() {
 	//Zero out the counter
 	currentFrequency := 0
 	//Open file
-	file, err := os.Open("input.txt")
+	file, err := os.Open("Day1/input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
