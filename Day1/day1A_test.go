@@ -6,9 +6,9 @@ import "testing"
 func TestA(t *testing.T) {
 	//Define and declare test cases
 	testCases := map[string]int{
-		"day1A1.test": 3,
-		"day1A2.test": 0,
-		"day1A3.test": -6,
+		"day1A1.txt": 3,
+		"day1A2.txt": 0,
+		"day1A3.txt": -6,
 	}
 
 	//For each case, check to see if Part1 returns the expected result.
