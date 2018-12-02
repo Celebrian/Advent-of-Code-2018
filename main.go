@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"github.com/Celebrian/Advent-of-Code-2018/Day1"
+	"github.com/Celebrian/Advent-of-Code-2018/Day2"
 )
 
 func main() {
@@ -25,11 +26,10 @@ func main() {
 	fmt.Printf("\nDay 1 Part 2 answer is %d.\n", day1B)
 
 	fmt.Scanln()
-	/*
-		fmt.Println("\nDay2 Part1")
-		day2B := Day2.A("Day2/input.txt", *verbose)
-		fmt.Printf("\nDay 2 Part 1 answer is %d.\n", day2B)
 
-		fmt.Scanln()
-	*/
+	day2B := day2.A("Day2/input.txt", *verbose)
+	fmt.Printf("\nDay 2 Part 1 answer is %d.\n", day2B)
+
+	fmt.Scanln()
+
 }
