@@ -29,16 +29,12 @@ func B(fil string, verbose bool) string {
 
 	//Loop while not at end of file
 	for scanner.Scan() {
-		//Start by setting all IDs as not exactly one character different
-		for id := range IDs {
-			IDs[id] = false
-		}
 
 		//Extract text on line
 		line := scanner.Text()
 
 		//Loop through all IDs
-		for id, found := range IDs {
+		for id := range IDs {
 			//Clear output string
 			output = ""
 			//For each id, loop through the current line
@@ -47,22 +43,29 @@ func B(fil string, verbose bool) string {
 				if id[i] == line[i] {
 					//If they are the same, add to output
 					output = fmt.Sprintf("%s%s", output, string(id[i]))
-					//If the letters are the same check if this has happened before
-					if found {
-						//If it has, change found to false and break
+				} else {
+					//If the letters are not the same check if this is the first time
+					if IDs[id] {
+						//If the letters have been the same before, set id to false and break to next id
 						IDs[id] = false
 						break
 					} else {
-						//If not, it now has
+						//If this is the first time, set id to true
 						IDs[id] = true
 					}
 				}
 			}
-			//If, after comparing the new line with one from IDs, there was exactly one letter difference, break
+			//If, after comparing the new line with one from IDs, there was exactly one letter difference, we found it
 			if IDs[id] {
-				break
+				return output
+			}
+			if verbose {
+				fmt.Printf("\n%s and %s differ by more than one letter", line, id)
 			}
 		}
+		//After comparing line with all IDs, add this line to IDs
+		IDs[line] = false
 	}
-	return output
+	fmt.Println(IDs)
+	return "Did not find exactly one"
 }
