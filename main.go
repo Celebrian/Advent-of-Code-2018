@@ -33,6 +33,6 @@ func main() {
 	fmt.Scanln()
 
 	day2B := day2.B("Day2/input.txt", *verbose)
-	fmt.Printf("\nDay 2 Part 2 answer is %d.\n", day2A)
+	fmt.Printf("\nDay 2 Part 2 answer is %d.\n", day2B)
 
 }
