@@ -14,25 +14,25 @@ func main() {
 	flag.Parse()
 
 	fmt.Println("Press the Enter Key to start, and move to a new task")
-	fmt.Scanln()
+	_, _ = fmt.Scanln()
 
 	//Day 1
 	day1A := Day1.A("Day1/input.txt", *verbose)
 	fmt.Printf("\nDay 1 Part 1 answer is %d.\n", day1A)
 
-	fmt.Scanln()
+	_, _ = fmt.Scanln()
 
 	day1B := Day1.B("Day1/input.txt", *verbose)
 	fmt.Printf("\nDay 1 Part 2 answer is %d.\n", day1B)
 
-	fmt.Scanln()
+	_, _ = fmt.Scanln()
 
 	day2A := day2.A("Day2/input.txt", *verbose)
 	fmt.Printf("\nDay 2 Part 1 answer is %d.\n", day2A)
 
-	fmt.Scanln()
+	_, _ = fmt.Scanln()
 
 	day2B := day2.B("Day2/input.txt", *verbose)
-	fmt.Printf("\nDay 2 Part 2 answer is %d.\n", day2B)
+	fmt.Printf("\nDay 2 Part 2 answer is %s.\n", day2B)
 
 }
