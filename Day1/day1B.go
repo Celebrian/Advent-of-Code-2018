@@ -9,7 +9,7 @@ import (
 )
 
 //B is part 2 of Day 1
-func B(fil string) int {
+func B(fil string, verbose bool) int {
 
 	//Bool for if a frequency has happened before, assumes not
 	found := false
@@ -59,13 +59,16 @@ func B(fil string) int {
 			_, exists := previousValues[resultingFrequency]
 			//If it has, print that, and set found to true
 			if exists == true {
-				fmt.Printf("Current frequency  %d, change of %s%d; resulting frequency  %d, which has \nalready been seen.\n", currentFrequency, operator, change, resultingFrequency)
+				if verbose {
+					fmt.Printf("Current frequency  %d, change of %s%d; resulting frequency  %d, which has \nalready been seen.\n", currentFrequency, operator, change, resultingFrequency)
+				}
 				found = true
 				//If not add currentFrequency to map and print current values
 			} else {
 				previousValues[resultingFrequency] = true
-				//Print string
-				fmt.Printf("Current frequency  %d, change of %s%d; resulting frequency  %d.\n", currentFrequency, operator, change, resultingFrequency)
+				if verbose {
+					fmt.Printf("Current frequency  %d, change of %s%d; resulting frequency  %d.\n", currentFrequency, operator, change, resultingFrequency)
+				}
 			}
 			currentFrequency = resultingFrequency
 		}

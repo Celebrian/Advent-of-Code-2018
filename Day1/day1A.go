@@ -9,7 +9,7 @@ import (
 )
 
 //A is part one of Day 1
-func A(fil string) int {
+func A(fil string, verbose bool) int {
 	//Zero out the counter
 	currentFrequency := 0
 	//Open file
@@ -45,8 +45,10 @@ func A(fil string) int {
 			currentFrequency -= value
 		}
 
-		//Print string
-		fmt.Printf("Current frequency  %d, change of %d; resulting frequency  %d.\n", previousValue, value, currentFrequency)
+		//Print string if verbose
+		if verbose {
+			fmt.Printf("Current frequency  %d, change of %d; resulting frequency  %d.\n", previousValue, value, currentFrequency)
+		}
 	}
 	return currentFrequency
 }
