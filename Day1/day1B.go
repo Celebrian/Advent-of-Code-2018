@@ -15,7 +15,9 @@ func B(fil string) int {
 	found := false
 
 	//Map of previous values
-	previousValues := make(map[int]bool)
+	previousValues := map[int]bool{
+		0: true,
+	}
 
 	//Variable for resulting frequency
 	var resultingFrequency int
@@ -57,7 +59,7 @@ func B(fil string) int {
 			_, exists := previousValues[resultingFrequency]
 			//If it has, print that, and set found to true
 			if exists == true {
-				fmt.Printf("Current frequency  %d, change of %s%d; resulting frequency  %d, which has \nalready been seen.", currentFrequency, operator, change, resultingFrequency)
+				fmt.Printf("Current frequency  %d, change of %s%d; resulting frequency  %d, which has \nalready been seen.\n", currentFrequency, operator, change, resultingFrequency)
 				found = true
 				//If not add currentFrequency to map and print current values
 			} else {

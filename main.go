@@ -12,7 +12,7 @@ func main() {
 
 	//Day 1
 	fmt.Println("\nDay1 Part1")
-	day1A := Day1.A("Day1/input.txt")
+	day1A := Day1.A("Day1/day1A2.test")
 	fmt.Printf("\nDay 1 Part 1 answer is %d.\n", day1A)
 
 	fmt.Scanln()
