@@ -8,12 +8,12 @@ import (
 	"strconv"
 )
 
-//Part1 of day 1
-func Part1() {
+//A is part one of Day 1
+func A(fil string) int {
 	//Zero out the counter
 	currentFrequency := 0
 	//Open file
-	file, err := os.Open("Day1/input.txt")
+	file, err := os.Open(fil)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -48,4 +48,5 @@ func Part1() {
 		//Print string
 		fmt.Printf("Current frequency  %d, change of %d; resulting frequency  %d.\n", previousValue, value, currentFrequency)
 	}
+	return currentFrequency
 }
