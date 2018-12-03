@@ -8,6 +8,7 @@ import (
 )
 
 //A is part 1 of day 2
+//nolint: gocyclo
 func A(fil string, verbose bool) int {
 
 	//Open file
