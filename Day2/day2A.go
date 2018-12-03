@@ -62,9 +62,15 @@ func A(fil string, verbose bool) int {
 			totalTwo++
 			output = fmt.Sprintf("%s at least one letter that appears exactly two times", output)
 		}
+		if two && three {
+			output = fmt.Sprintf("%s and", output)
+		}
 		if three {
 			totalThree++
 			output = fmt.Sprintf("%s at least one letter that appears exactly three times", output)
+		}
+		if !two && !three {
+			output = fmt.Sprintf("%s no letters that appear exactly two or three times.", output)
 		}
 		if verbose {
 			fmt.Println(output)

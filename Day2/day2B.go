@@ -60,7 +60,7 @@ func B(fil string, verbose bool) string {
 				return output
 			}
 			if verbose {
-				fmt.Printf("\n%s and %s differ by more than one letter", line, id)
+				fmt.Println(line, " and ", id, " differ by more than one letter")
 			}
 		}
 		//After comparing line with all IDs, add this line to IDs
