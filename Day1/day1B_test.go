@@ -16,7 +16,7 @@ func TestB(t *testing.T) {
 
 	//For each case, check to see if Part1 returns the expected result.
 	for input, expected := range testCases {
-		actual := B(input, false)
+		actual := B(input, *verbose)
 
 		if actual != expected {
 			t.Error("Failure: Expected ", expected, " got ", actual, "\n")
