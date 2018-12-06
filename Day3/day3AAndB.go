@@ -9,9 +9,10 @@ import (
 	"strings"
 )
 
-//A is part 1 of day 3
+//AAndB is part 1 and part 2 of day 3
 //nolint: gocyclo
-func A(fil string, verbose bool, fabricSize int) int {
+func AAndB(fil string, verbose bool, fabricSize int) (overlap, notOverlap int) {
+	//All code is for part 1 except for where noted
 
 	//Open file
 	file, err := os.Open(fil)
@@ -35,8 +36,13 @@ func A(fil string, verbose bool, fabricSize int) int {
 		}
 	}
 
-	//Count overlap
-	overlap := 0
+	//Reset overlap
+	overlap = 0
+
+	//PART 2: Create map for if each ID has no overlap
+	notOverlapMap := make(map[int]bool)
+	//
+
 	//Create scanner for file
 	scanner := bufio.NewScanner(file)
 
@@ -51,6 +57,13 @@ func A(fil string, verbose bool, fabricSize int) int {
 
 		//Extract id and remove leading # (it is still string)
 		textID := parts[0][1:]
+		//PART 2: Create numeric value of ID, add it to the map expecting it to be unique
+		numID, err := strconv.Atoi(textID)
+		if err != nil {
+			log.Fatal(err)
+		}
+		notOverlapMap[numID] = true
+		//
 
 		//Reset default fabricID
 		fabricID := "  .  "
@@ -95,17 +108,31 @@ func A(fil string, verbose bool, fabricSize int) int {
 				if fabric[j][i] == blank {
 					fabric[j][i] = fabricID
 				} else if fabric[j][i] != "  X  " {
+					//PART 2: Set both current ID and the ID in the fabric as notOverlap = false
+					notOverlapMap[numID] = false
+					numFabricID, err := strconv.Atoi(strings.TrimSpace(fabric[j][i]))
+					if err != nil {
+						log.Panic(err)
+					}
+					notOverlapMap[numFabricID] = false
 					fabric[j][i] = "  X  "
 					overlap++
 				}
 			}
 		}
 	}
+	//PART 2: Find the one ID in the map that is true, that is the notOverlap ID
+	for i := range notOverlapMap {
+		if notOverlapMap[i] == true {
+			notOverlap = i
+		}
+	}
+
 	//If verbose, print fabric
 	if verbose {
 		for _, row := range fabric {
 			fmt.Println(row)
 		}
 	}
-	return overlap
+	return overlap, notOverlap
 }

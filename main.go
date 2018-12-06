@@ -36,10 +36,7 @@ func main() {
 	_, _ = fmt.Scanln()
 
 	//Day 3
-	day3A := day3.A("Day3/input.txt", *verbose, 1000)
-	fmt.Printf("\nDay 3 Part 1 answer is %d.\n", day3A)
+	day3A, day3B := day3.AAndB("Day3/input.txt", *verbose, 1000)
+	fmt.Printf("\nDay 3 Part 1 answer is %d.\n\nDay 3 Part 2 answer is %d.\n", day3A, day3B)
 	_, _ = fmt.Scanln()
-	/*		day3B := day3.B("Day3/input.txt", *verbose)
-			fmt.Printf("\nDay 3 Part 2 answer is %s.\n", day3B)
-	*/
 }

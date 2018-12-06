@@ -16,16 +16,17 @@ func init() {
 //Test day3A function
 func TestA(t *testing.T) {
 	//Define and declare test cases
-	testCases := map[string]int{
-		"day3A1.txt": 4,
+	testCases := map[string][2]int{
+		"day3AAndB1.txt": {4, 3},
 	}
 
 	//For each case, check to see if A returns the expected result.
 	for input, expected := range testCases {
-		actual := A(input, *verbose, 8)
+		actualA, actualB := AAndB(input, *verbose, 8)
 
-		if actual != expected {
-			t.Error("Failure: Expected ", expected, " got ", actual, "\n")
+		if actualA != expected[0] || actualB != expected[1] {
+			t.Error("Failure: Expected ", expected[0], " and ", expected[1], " got ", actualA, " and ", actualB, "\n",
+				"E.g. Should be: ", expected[0], "==", actualA, " and ", expected[1], "==", actualB, "\n")
 		}
 	}
 }
