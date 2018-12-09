@@ -117,12 +117,15 @@ func AAndB(fil string, verbose bool, fabricSize int) (overlap, notOverlap int) {
 					notOverlapMap[numFabricID] = false
 					fabric[j][i] = "  X  "
 					overlap++
+				} else {
+					notOverlapMap[numID] = false
 				}
 			}
 		}
 	}
 	//PART 2: Find the one ID in the map that is true, that is the notOverlap ID
 	for i := range notOverlapMap {
+		//fmt.Print("MapID=", i, "\tValue=", notOverlapMap[i], "\n")
 		if notOverlapMap[i] == true {
 			notOverlap = i
 		}
